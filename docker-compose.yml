@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  model:
+    build:
+      context: .
+      args:
+        - SECRET_KEY=${SECRET_KEY}
+        - FLASK_ENV=${FLASK_ENV}
+    image: ${IMAGE_NAME}:${IMAGE_VERSION}
+    command: python -m flask run --host ${API_HOST} --port ${API_PORT}
+    ports:
+      - ${API_PORT}:${API_PORT}
+
+
